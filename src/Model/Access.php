@@ -140,13 +140,20 @@ class Access extends Model
      */
     public static function getAccessAssociatedMenu(array $roleAssociatedAccess): array
     {
-        $accessAssociatedMenu = Access::find([
+        return array_column(self::getAccessByRole($roleAssociatedAccess), 'menu_id');
+    }
+
+    /**
+     * @param array $roleAssociatedAccess
+     * @return array
+     */
+    public static function getAccessByRole(array $roleAssociatedAccess): array
+    {
+        return Access::find([
             'id in ({id:array})',
             'bind' => [
                 'id' => $roleAssociatedAccess
             ]
         ])->toArray();
-
-        return array_column($accessAssociatedMenu, 'menu_id');
     }
 }
