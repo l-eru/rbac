@@ -1,0 +1,15 @@
+{
+    "name": "l-eru/rbac",
+    "authors": [
+        {
+            "name": "L-eru",
+            "email": "L.eru.ninja@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+	    "L\\Rbac\\": "src/"
+	}
+    }
+}
